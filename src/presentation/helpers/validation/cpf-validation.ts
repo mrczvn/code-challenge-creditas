@@ -1,4 +1,4 @@
-import { InvalidParamError } from '../errors/invalid-param-error'
+import { InvalidParamError } from '../errors'
 import { IValidation, IValidator } from '../protocols'
 
 export class CpfValidation implements IValidation {

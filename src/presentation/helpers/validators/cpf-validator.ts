@@ -48,13 +48,13 @@ export class CpfValidator implements IValidator {
     }
 
     const checkFirstNineDigitsCpf: number = this.checkCpfDigits(plainCpf, 9)
+    const checkFirstTeenDigitsCpf: number = this.checkCpfDigits(plainCpf, 10)
 
-    if (parseInt(plainCpf.substring(9, 10)) !== checkFirstNineDigitsCpf) {
-      const checkFirstTeenDigitsCpf: number = this.checkCpfDigits(plainCpf, 10)
-
-      if (parseInt(plainCpf.substring(10, 11)) !== checkFirstTeenDigitsCpf) {
-        return false
-      }
+    if (
+      parseInt(plainCpf.substring(9, 10)) !== checkFirstNineDigitsCpf ||
+      parseInt(plainCpf.substring(10, 11)) !== checkFirstTeenDigitsCpf
+    ) {
+      return false
     }
 
     return true

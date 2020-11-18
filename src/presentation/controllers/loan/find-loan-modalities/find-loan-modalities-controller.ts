@@ -1,11 +1,11 @@
-import { IValidation } from '../../../helpers/protocols'
 import { badRequest, ok } from '../../../helpers/http/http-helper'
 import {
   IController,
   IHttpResponse,
-  IHttpRequest
+  IHttpRequest,
+  IValidation,
+  ILoadLoanModalities
 } from './find-loan-modalities-controller-protocols'
-import { ILoadLoanModalities } from '../../../../domain/protocols/load-loan-modalities'
 
 export class FindLoanModalitiesController implements IController {
   constructor(
@@ -20,6 +20,10 @@ export class FindLoanModalitiesController implements IController {
 
     if (requiredFieldError) return badRequest(requiredFieldError)
 
-    return ok(this.loadLoansModalities.load(customer))
+    const loansModalities = this.loadLoansModalities.load(customer)
+
+    if (!loansModalities) return ok('no loan modality found for your profile')
+
+    return ok(loansModalities)
   }
 }

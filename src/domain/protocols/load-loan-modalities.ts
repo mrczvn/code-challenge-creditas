@@ -1,5 +1,4 @@
-import { CustomerModel } from '../models/customer'
-import { LoanModalityModel } from '../models/loan-modality'
+import { CustomerModel, LoanModalityModel } from '../models'
 
 export interface ILoanModalitiesResponse {
   customer: string

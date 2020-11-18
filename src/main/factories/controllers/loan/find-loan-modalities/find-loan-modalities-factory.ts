@@ -1,13 +1,15 @@
-import { LoadLoanModalities } from '../../../../../domain/usescases/loan/load-loan-modalities'
-import { LoanModalityValidation1 } from '../../../../../domain/usescases/loan/loan-modality-validation1'
-import { LoanModalityValidation2 } from '../../../../../domain/usescases/loan/loan-modality-validation2'
-import { LoanModalityValidation3 } from '../../../../../domain/usescases/loan/loan-modality-validation3'
-import { LoanModalityValidation4 } from '../../../../../domain/usescases/loan/loan-modality-validation4'
-import { LoanModalityValidation5 } from '../../../../../domain/usescases/loan/loan-modality-validation5'
-import { LoanModalityValidation6 } from '../../../../../domain/usescases/loan/loan-modality-validation6'
-import { FindLoanModalitiesController } from '../../../../../presentation/controllers/loan/find-loan-modalities/find-loan-modalities-controller'
-import { IController } from '../../../../../presentation/helpers/protocols'
 import { makeFindLoanModalitiesValidation } from './find-loan-modalities-validation'
+import {
+  LoadLoanModalities,
+  LoanModalityValidation1,
+  LoanModalityValidation2,
+  LoanModalityValidation3,
+  LoanModalityValidation4,
+  LoanModalityValidation5,
+  LoanModalityValidation6
+} from '../../../../../domain/usescases/loan'
+import { IController } from '../../../../../presentation/helpers/protocols'
+import { FindLoanModalitiesController } from '../../../../../presentation/controllers/loan/find-loan-modalities/find-loan-modalities-controller'
 
 export const makeFindLoanModalitiesController = (): IController => {
   const loanModalityValidation1 = new LoanModalityValidation1()

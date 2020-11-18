@@ -1,10 +1,14 @@
 import { IValidation } from '../../../../../presentation/helpers/protocols'
-import { CpfValidation } from '../../../../../presentation/helpers/validation/cpf-validation'
-import { RequiredFieldValidation } from '../../../../../presentation/helpers/validation/required-field-validation'
-import { StateAbbreviationValidation } from '../../../../../presentation/helpers/validation/state-abbreviation-validation'
-import { ValidationComposite } from '../../../../../presentation/helpers/validation/validation-composite'
-import { CpfValidator } from '../../../../../presentation/helpers/validators/cpf-validator'
-import { StateAbbreviationValidator } from '../../../../../presentation/helpers/validators/state-abbreviation-validator'
+import {
+  CpfValidation,
+  ValidationComposite,
+  StateAbbreviationValidation,
+  RequiredFieldValidation
+} from '../../../../../presentation/helpers/validation'
+import {
+  CpfValidator,
+  StateAbbreviationValidator
+} from '../../../../../presentation/helpers/validators'
 
 export const makeFindLoanModalitiesValidation = (): ValidationComposite => {
   const validations: IValidation[] = []

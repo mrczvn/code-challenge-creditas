@@ -1,10 +1,10 @@
-import { CustomerModel } from '@/domain/models/customer'
+import { CustomerRequest } from './customer-request'
+import { CustomerModel } from '../../models'
 import {
   ILoadLoanModalities,
-  ILoanModalitiesResponse
-} from '../../protocols/load-loan-modalities'
-import { ILoanModalitiesValidation } from '../../protocols/loan-modalities-validation'
-import { CustomerRequest } from './customer-request'
+  ILoanModalitiesResponse,
+  ILoanModalitiesValidation
+} from '../../protocols'
 
 export class LoadLoanModalities implements ILoadLoanModalities {
   constructor(
@@ -18,15 +18,13 @@ export class LoadLoanModalities implements ILoadLoanModalities {
       loanValidation.validate(customerRequest)
     )
 
-    if (validLoans) {
-      const loanModalites = validLoans
-        .map((loanValidation) => loanValidation.loanPossibilities())
-        .flat()
-        .map((loanModality) => loanModality.getLoan())
+    if (!validLoans[0]) return null
 
-      return { customer: customerRequest.getNome(), loans: loanModalites }
-    }
+    const loanModalites = validLoans
+      .map((loanValidation) => loanValidation.loanPossibilities())
+      .flat()
+      .map((loanModality) => loanModality.getLoan())
 
-    return null
+    return { customer: customerRequest.getName(), loans: loanModalites }
   }
 }

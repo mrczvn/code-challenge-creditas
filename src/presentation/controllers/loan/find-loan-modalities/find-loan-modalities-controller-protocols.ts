@@ -1,2 +1,2 @@
 export * from '../../../helpers/protocols'
-// import '../../../helpers/protocols'
+export * from '../../../../domain/protocols/load-loan-modalities'

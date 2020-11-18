@@ -1,11 +1,11 @@
-import { CustomerModel } from '../../models/customer'
-import { ICustomerRequest } from '../../protocols/customer-request'
-import { equalsIgnoreCase } from '../../../presentation/util/equals-ignore-case'
+import { CustomerModel } from '../../models'
+import { ICustomerRequest } from '../../protocols'
+import { equalsIgnoreCase } from '../../../presentation/util/equal-ignore-case'
 
 export class CustomerRequest implements ICustomerRequest {
   constructor(private readonly customer: CustomerModel) {}
 
-  getNome(): string {
+  getName(): string {
     return this.customer.name
   }
 

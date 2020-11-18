@@ -1,3 +1,3 @@
 export interface IValidator {
-  isValid: (cpf: string) => boolean
+  isValid: (input: string) => boolean
 }

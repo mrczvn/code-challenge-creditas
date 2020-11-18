@@ -1,9 +1,5 @@
-import { LoanModalityModel, typeLoanModality } from '../models/loan-modality'
+import { LoanModalityModel } from '../models'
 
 export interface ILoanModalityPossibility {
-  getTipo: () => typeLoanModality
-
-  getTaxa: () => number
-
   getLoan: () => LoanModalityModel
 }

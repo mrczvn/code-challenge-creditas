@@ -1,5 +1,5 @@
 export interface ICustomerRequest {
-  getNome: () => string
+  getName: () => string
 
   lowerSalary: (limit: number) => boolean
 
